@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lot 21 - Low Country Court, Hodgenville, KY</title>
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -238,222 +239,106 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     .submit-btn:hover {
-      background-color: #142B66;
+      background-color: #122861;
     }
 
-    /* Agent Footer Section */
-    .footer-section {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
+    footer {
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 0.85rem;
       margin-top: 10px;
-    }
-
-    .agent-details-wrapper {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .agent-profile {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .agent-avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 3px solid #FFFFFF;
-      object-fit: cover;
-    }
-
-    .agent-info {
-      color: #FFFFFF;
-    }
-
-    .broker-line {
-      font-size: 0.8rem;
-      color: #CBD5E1;
-      margin-bottom: 4px;
-    }
-
-    .agent-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #FFFFFF;
-    }
-
-    .contact-link {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-size: 0.95rem;
-      display: block;
-      margin-top: 2px;
-    }
-
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-
-    .qr-box {
-      background: #FFFFFF;
-      padding: 6px;
-      border-radius: 8px;
-    }
-
-    .qr-box img {
-      width: 80px;
-      height: 80px;
-      display: block;
-    }
-
-    .brokerage-logo {
-      background-color: #000000;
-      padding: 8px 16px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (max-width: 480px) {
-      .headline { font-size: 2.2rem; }
-      .agent-details-wrapper { flex-direction: column; text-align: center; }
-      .agent-profile { flex-direction: column; }
-      .highlights-grid { grid-template-columns: 1fr; }
-      .plat-images { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <main class="flyer-container">
+  <div class="flyer-container">
     
     <!-- Top Banner -->
-    <div class="top-banner">
-      DON'T MISS THIS OPPORTUNITY!
-    </div>
+    <div class="top-banner">Featured Land Listing</div>
 
-    <!-- Title Header -->
-    <h1 class="headline">
-      Your Dream Build Lot in Scenic LaRue County!
-    </h1>
+    <!-- Main Title -->
+    <h1 class="headline">Build Your Dream Home</h1>
 
     <!-- Address Bar -->
     <div class="address-bar">
-      LOT 21, LOW COUNTRY COURT, HODGENVILLE, KY., 42748
+      LOT 21 LOW COUNTRY COURT, HODGENVILLE, KY
     </div>
 
     <!-- Info Badges -->
     <div class="info-badges">
-      <div class="badge">💲 Price: $49,000</div>
-      <div class="badge">📐 Size: 0.82 AC</div>
+      <div class="badge">PRICE: CONTRACT / INQUIRE</div>
+      <div class="badge">LOT SIZE: 1.0+ ACRES</div>
     </div>
 
-    <!-- Image Gallery -->
+    <!-- Plat Images Card -->
     <div class="card">
       <div class="plat-images">
-        <img src="https://via.placeholder.com/300x400?text=Plat+Map+Detail" alt="Plat Map Lot Detail">
-        <img src="https://via.placeholder.com/300x400?text=Subdivision+Overview" alt="Subdivision Overview Map">
+        <img src="https://via.placeholder.com/400x300?text=Plat+Map+Boundary" alt="Plat Map Boundary">
+        <img src="https://via.placeholder.com/400x300?text=Lot+Overview" alt="Lot Overview">
       </div>
     </div>
 
-    <!-- Property Details -->
+    <!-- Property Details Card -->
     <div class="card">
       <p class="description-text">
-        Discover your opportunity to build the home of your dreams on this newly developed lot in Magnolia Fields! Here is your opportunity to build the home of your dreams on one of these newly developed lots nestled in the heart of scenic LaRue County, Kentucky. These pristine, build-ready lots are situated in a peaceful rural setting while still offering convenient access to nearby amenities, schools, and commuter routes.
+        Great opportunity to build in a premier subdivision! Lot 21 offers an ideal layout on Low Country Court with utility access nearby and plenty of space for your custom build.
       </p>
 
       <ul class="specs-list">
-        <li><strong>Topography:</strong> Level</li>
-        <li><strong>Water:</strong> County</li>
-        <li><strong>Sewer:</strong> Septic System</li>
-        <li><strong>Electricity:</strong> Available - On Property</li>
-        <li><strong>Fence:</strong> None</li>
-        <li><strong>Outer Structures:</strong> None</li>
-        <li><strong>Location Features:</strong> County</li>
+        <li><strong>Location:</strong> Hodgenville, KY</li>
+        <li><strong>Subdivision:</strong> Low Country Court</li>
+        <li><strong>Property Type:</strong> Residential Land / Building Lot</li>
       </ul>
 
       <div class="highlights-grid">
-        <div class="highlight-item"><span>✓</span> Build-Ready Site</div>
-        <div class="highlight-item"><span>✓</span> LaRue County Schools</div>
-        <div class="highlight-item"><span>✓</span> Scenic Location</div>
-        <div class="highlight-item"><span>✓</span> MLS #1234567</div>
+        <div class="highlight-item"><span>✓</span> Ready to Build</div>
+        <div class="highlight-item"><span>✓</span> Quiet Cul-de-sac</div>
+        <div class="highlight-item"><span>✓</span> Utilities Nearby</div>
+        <div class="highlight-item"><span>✓</span> Excellent Location</div>
       </div>
     </div>
 
-    <!-- Built-in Lead Capture Form -->
+    <!-- Formspree Lead Capture Card -->
     <div class="card lead-form-card">
       <h2 class="form-title">Interested in Lot 21?</h2>
-      <p class="form-subtitle">Fill out the form below to request a private walkthrough or more details.</p>
-      
-      <!-- Form Endpoint configured via Formspree -->
-      <form action="https://formspree.io/f/cwhomeky@gmail.com" method="POST" class="contact-form">
+      <p class="form-subtitle">Fill out the form below for plat maps, restrictions, or to schedule a walk.</p>
+
+      <!-- Replace YOUR_FORMSPREE_ID with your Formspree endpoint -->
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="contact-form">
         <div class="form-group">
-          <label for="full-name">Full Name</label>
-          <input type="text" id="full-name" name="name" placeholder="John Doe" required>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
         </div>
 
         <div class="form-group">
-          <label for="email-address">Email Address</label>
-          <input type="email" id="email-address" name="email" placeholder="john@example.com" required>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
         </div>
 
         <div class="form-group">
-          <label for="phone-number">Phone Number</label>
-          <input type="tel" id="phone-number" name="phone" placeholder="(502) 555-0199">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(270) 555-0199">
         </div>
 
         <div class="form-group">
-          <label for="message">Message / Questions</label>
-          <textarea id="message" name="message" rows="4" placeholder="I'd like more information regarding Lot 21 on Low Country Court..."></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="I would like more information on Lot 21..."></textarea>
         </div>
 
-        <!-- Hidden input to specify custom email subject line -->
-        <input type="hidden" name="_subject" value="New Lead: Lot 21 Low Country Court Inquiry">
-
-        <button type="submit" class="submit-btn">Send Inquiry</button>
+        <button type="submit" class="submit-btn">Request Information</button>
       </form>
     </div>
 
-    <!-- Agent Footer Section -->
-    <footer class="footer-section">
-      <div class="agent-details-wrapper">
-        
-        <div class="agent-profile">
-          <img src="https://via.placeholder.com/90" alt="Patrick C. Washington" class="agent-avatar">
-          <div class="agent-info">
-            <div class="broker-line">Brokered by Pennington Properties | Aaron Pennington</div>
-            <div class="agent-name">Patrick C. Washington</div>
-            <a href="tel:5022308636" class="contact-link">📱 Direct: (502) 230-8636</a>
-            <a href="mailto:cwhomeky@gmail.com" class="contact-link">✉️ cwhomeky@gmail.com</a>
-            <div class="broker-line" style="margin-top: 4px;">Office: (270) 872-5469 | Elizabethtown, KY</div>
-          </div>
-        </div>
-
-        <div class="qr-box">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=mailto:cwhomeky@gmail.com" alt="Scan QR Code">
-        </div>
-
-      </div>
-
-      <div class="brokerage-logo">
-        <h3 style="color: red; font-family: sans-serif; text-transform: uppercase;">Pennington Properties</h3>
-      </div>
+    <footer>
+      <p>Pennington Properties | Elizabethtown & Surrounding Areas</p>
     </footer>
 
-  </main>
+  </div>
 
 </body>
 </html>
