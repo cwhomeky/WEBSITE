@@ -159,7 +159,7 @@
 
     <!-- SCRIPT FOR AUTH & 30-DAY EXPIRATION -->
     <script>
-        const ADMIN_PASS = "ARCHER2026"; // Secret Admin Password
+        const ADMIN_PASS = "CWHOMEKY2026"; // Secret Admin Password
         
         // 30-Day Client Passcode Database (Key: Creation Timestamp)
         const SUBSCRIBER_KEYS = {
