@@ -393,13 +393,13 @@
       </div>
     </div>
 
-    <!-- Built-in Lead Capture Form -->
+    <!-- Lead Capture Form -->
     <div class="card lead-form-card">
       <h2 class="form-title">Interested in Lot 21?</h2>
       <p class="form-subtitle">Fill out the form below to request a private walkthrough or more details.</p>
       
-      <!-- Form Endpoint configured via Formspree -->
-      <form action="https://formspree.io/f/cwhomeky@gmail.com" method="POST" class="contact-form">
+      <!-- Set up your free endpoint at formspree.io and replace the action URL below -->
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="contact-form">
         <div class="form-group">
           <label for="full-name">Full Name</label>
           <input type="text" id="full-name" name="name" placeholder="John Doe" required>
@@ -420,7 +420,6 @@
           <textarea id="message" name="message" rows="4" placeholder="I'd like more information regarding Lot 21 on Low Country Court..."></textarea>
         </div>
 
-        <!-- Hidden input to specify custom email subject line -->
         <input type="hidden" name="_subject" value="New Lead: Lot 21 Low Country Court Inquiry">
 
         <button type="submit" class="submit-btn">Send Inquiry</button>
