@@ -1,405 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lot 21 - Low Country Court, Hodgenville, KY</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pennington Properties | Real Estate Solutions</title>
   
+  <!-- =========================================================
+       CUSTOM STYLES (CSS)
+       Edit the variables in :root to change colors across the whole site!
+       ========================================================= -->
   <style>
     :root {
-      --primary-blue: #1D3D8F;
-      --accent-gold: #F1B318;
-      --bg-light: #F4F6FB;
-      --card-bg: #FFFFFF;
-      --text-main: #222222;
-      --text-muted: #555555;
+      --primary-color: #0f172a;    /* Dark Navy Header/Footer */
+      --secondary-color: #1e293b;  /* Dark Slate Accents */
+      --accent-color: #2563eb;     /* Button & Link Blue */
+      --text-dark: #334155;        /* Body Text */
+      --bg-light: #f8fafc;         /* Site Background */
+      --card-bg: #ffffff;          /* Card Background */
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: var(--primary-blue);
-      color: var(--text-main);
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .flyer-container {
-      width: 100%;
-      max-width: 650px;
-      background-color: var(--primary-blue);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    /* Top Banner */
-    .top-banner {
-      background-color: var(--accent-gold);
-      color: #000;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      padding: 6px 24px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    }
-
-    /* Main Title */
-    .headline {
-      font-family: 'Great Vibes', cursive;
-      color: #FFFFFF;
-      font-size: 2.8rem;
-      text-align: center;
-      line-height: 1.2;
-      margin-top: 4px;
-    }
-
-    /* Address Bar */
-    .address-bar {
-      width: 100%;
-      background-color: #FFFFFF;
-      color: var(--primary-blue);
-      text-align: center;
-      padding: 10px 15px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      border-radius: 6px;
-      letter-spacing: 0.5px;
-    }
-
-    /* Info Badges (Price & Size) */
-    .info-badges {
+    /* --- Navigation Bar --- */
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
-      width: 100%;
-      gap: 15px;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+    .brand-title { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.5px; }
+    nav a { color: #e2e8f0; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--accent-color); }
+    .nav-phone { background: var(--accent-color); padding: 0.5rem 1rem; border-radius: 4px; color: white !important; }
 
-    .badge {
-      flex: 1;
-      background-color: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #FFFFFF;
+    /* --- Hero Banner --- */
+    .hero {
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                  url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
       text-align: center;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
+      padding: 6rem 1.5rem;
     }
-
-    /* Card Layouts */
-    .card {
-      width: 100%;
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .plat-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .plat-images img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      border: 1px solid #E0E0E0;
-      object-fit: cover;
-    }
-
-    .description-text {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #333333;
-      margin-bottom: 20px;
-    }
-
-    .specs-list {
-      list-style: none;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #222222;
-      border-bottom: 1px solid #EEEEEE;
-      padding-bottom: 16px;
-      margin-bottom: 16px;
-    }
-
-    .specs-list li strong {
-      font-weight: 700;
-      color: #000;
-    }
-
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      font-weight: 700;
-      color: #222222;
-      font-size: 0.95rem;
-    }
-
-    .highlight-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .highlight-item span {
-      color: var(--primary-blue);
-      font-weight: 900;
-    }
-
-    /* Lead Capture Form Styling */
-    .lead-form-card {
-      border: 2px solid var(--accent-gold);
-    }
-
-    .form-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--primary-blue);
-      margin-bottom: 6px;
-      text-align: center;
-    }
-
-    .form-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #CCCCCC;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      background-color: #FAFAFA;
-      transition: border-color 0.2s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary-blue);
-      background-color: #FFFFFF;
-    }
-
-    .submit-btn {
-      background-color: var(--primary-blue);
-      color: #FFFFFF;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      margin-top: 8px;
-    }
-
-    .submit-btn:hover {
-      background-color: #142B66;
-    }
-
-    /* Agent Footer Section */
-    .footer-section {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      margin-top: 10px;
-    }
-
-    .agent-details-wrapper {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .agent-profile {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .agent-avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 3px solid #FFFFFF;
-      object-fit: cover;
-    }
-
-    .agent-info {
-      color: #FFFFFF;
-    }
-
-    .broker-line {
-      font-size: 0.8rem;
-      color: #CBD5E1;
-      margin-bottom: 4px;
-    }
-
-    .agent-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #FFFFFF;
-    }
-
-    .contact-link {
-      color: #FFFFFF;
+    .hero h1 { font-size: 2.75rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.25rem; max-width: 650px; margin: 0 auto 2rem; color: #cbd5e1; }
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.85rem 2rem;
       text-decoration: none;
-      font-size: 0.95rem;
-      display: block;
-      margin-top: 2px;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background 0.2s;
     }
+    .cta-btn:hover { background-color: #1d4ed8; }
 
-    .contact-link:hover {
-      text-decoration: underline;
-    }
+    /* --- Main Container --- */
+    .container { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; }
+    .section-title { font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; }
 
-    .qr-box {
-      background: #FFFFFF;
-      padding: 6px;
+    /* --- Grid & Cards --- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .card {
+      background: var(--card-bg);
       border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
     }
+    .card:hover { transform: translateY(-4px); }
+    .card img { width: 100%; height: 220px; object-fit: cover; }
+    .card-content { padding: 1.5rem; }
+    .card-title { font-size: 1.25rem; font-weight: bold; color: var(--primary-color); margin-bottom: 0.5rem; }
+    .card-subtitle { color: var(--accent-color); font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; }
 
-    .qr-box img {
-      width: 80px;
-      height: 80px;
-      display: block;
+    /* --- Contact Form Section --- */
+    .contact-wrapper {
+      background: var(--card-bg);
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 2.5rem;
+      max-width: 700px;
+      margin: 4rem auto 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-btn:hover { background: #1d4ed8; }
 
-    .brokerage-logo {
-      background-color: #000000;
-      padding: 8px 16px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* --- Footer --- */
+    footer {
+      background: var(--primary-color);
+      color: #94a3b8;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      margin-top: 5rem;
     }
-
-    @media (max-width: 480px) {
-      .headline { font-size: 2.2rem; }
-      .agent-details-wrapper { flex-direction: column; text-align: center; }
-      .agent-profile { flex-direction: column; }
-      .highlights-grid { grid-template-columns: 1fr; }
-      .plat-images { grid-template-columns: 1fr; }
-    }
+    footer a { color: #f1f5f9; text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <main class="flyer-container">
-    
-    <!-- Top Banner -->
-    <div class="top-banner">
-      DON'T MISS THIS OPPORTUNITY!
-    </div>
+  <!-- NAVIGATION HEADER -->
+  <header>
+    <div class="brand-title">Pennington Properties</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#featured">Listings</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:2708725469" class="nav-phone">270-872-5469</a>
+    </nav>
+  </header>
 
-    <!-- Title Header -->
-    <h1 class="headline">
-      Your Dream Build Lot in Scenic LaRue County!
-    </h1>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Your Trusted Local Real Estate Partner</h1>
+    <p>Providing professional real estate services across Elizabethtown and surrounding areas.</p>
+    <a href="#contact" class="cta-btn">Get In Touch Today</a>
+  </section>
 
-    <!-- Address Bar -->
-    <div class="address-bar">
-      LOT 21, LOW COUNTRY COURT, HODGENVILLE, KY., 42748
-    </div>
+  <!-- MAIN CONTAINER -->
+  <main class="container">
 
-    <!-- Info Badges -->
-    <div class="info-badges">
-      <div class="badge">💲 Price: $49,000</div>
-      <div class="badge">📐 Size: 0.82 AC</div>
-    </div>
-
-    <!-- Image Gallery -->
-    <div class="card">
-      <div class="plat-images">
-        <img src="https://via.placeholder.com/300x400?text=Plat+Map+Detail" alt="Plat Map Lot Detail">
-        <img src="https://via.placeholder.com/300x400?text=Subdivision+Overview" alt="Subdivision Overview Map">
-      </div>
-    </div>
-
-    <!-- Property Details -->
-    <div class="card">
-      <p class="description-text">
-        Discover your opportunity to build the home of your dreams on this newly developed lot in Magnolia Fields! Here is your opportunity to build the home of your dreams on one of these newly developed lots nestled in the heart of scenic LaRue County, Kentucky. These pristine, build-ready lots are situated in a peaceful rural setting while still offering convenient access to nearby amenities, schools, and commuter routes.
+    <!-- ABOUT SECTION -->
+    <section id="about" style="margin-bottom: 4rem; text-align: center;">
+      <h2 class="section-title">Welcome to Pennington Properties</h2>
+      <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #475569;">
+        Whether you are looking to buy your home, sell a property, or explore local investment opportunities, we provide personalized service and local expertise every step of the way.
       </p>
+    </section>
 
-      <ul class="specs-list">
-        <li><strong>Topography:</strong> Level</li>
-        <li><strong>Water:</strong> County</li>
-        <li><strong>Sewer:</strong> Septic System</li>
-        <li><strong>Electricity:</strong> Available - On Property</li>
-        <li><strong>Fence:</strong> None</li>
-        <li><strong>Outer Structures:</strong> None</li>
-        <li><strong>Location Features:</strong> County</li>
-      </ul>
+    <!-- FEATURED SECTION / SERVICES -->
+    <section id="featured">
+      <h2 class="section-title">Our Focus Areas</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80" alt="Residential Buying & Selling">
+          <div class="card-content">
+            <div class="card-title">Residential Real Estate</div>
+            <div class="card-subtitle">Buying & Selling</div>
+            <p>Guiding homeowners and buyers through seamless residential property transactions.</p>
+          </div>
+        </div>
 
-      <div class="highlights-grid">
-        <div class="highlight-item"><span>✓</span> Build-Ready Site</div>
-        <div class="highlight-item"><span>✓</span> LaRue County Schools</div>
-        <div class="highlight-item"><span>✓</span> Scenic Location</div>
-        <div class="highlight-item"><span>✓</span> MLS #1234567</div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Property Management">
+          <div class="card-content">
+            <div class="card-title">Property Management</div>
+            <div class="card-subtitle">Full Service Solutions</div>
+            <p>Comprehensive management services ensuring long-term value and operational ease.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600&q=80" alt="Local Expertise">
+          <div class="card-content">
+            <div class="card-title">Local Market Expertise</div>
+            <div class="card-subtitle">Elizabethtown & Beyond</div>
+            <p>In-depth knowledge of local neighborhood trends, valuation, and market conditions.</p>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <!-- Lead Capture Form -->
-    <div class="card lead-form-card">
-      <h2 class="form-title">Interested in Lot 21?</h2>
-      <p class="form-subtitle">Fill out the form below to request a private walkthrough or more details.</p>
-      
-      <!-- Set up your free endpoint at formspree.io and replace the action URL below -->
-      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="contact-form">
+    <!-- FORMSPREE CONTACT SECTION -->
+    <section id="contact" class="contact-wrapper">
+      <h2 class="section-title" style="margin-bottom: 0.5rem;">Contact Us</h2>
+      <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Send a direct message and we will get back to you promptly.</p>
+
+      <!-- REPLACE "YOUR_FORMSPREE_ID" WITH YOUR ACTUAL FORMSPREE FORM ID -->
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
         <div class="form-group">
           <label for="full-name">Full Name</label>
           <input type="text" id="full-name" name="name" placeholder="John Doe" required>
@@ -407,52 +210,31 @@
 
         <div class="form-group">
           <label for="email-address">Email Address</label>
-          <input type="email" id="email-address" name="email" placeholder="john@example.com" required>
+          <input type="email" id="email-address" name="email" placeholder="name@example.com" required>
         </div>
 
         <div class="form-group">
           <label for="phone-number">Phone Number</label>
-          <input type="tel" id="phone-number" name="phone" placeholder="(502) 555-0199">
+          <input type="tel" id="phone-number" name="phone" placeholder="(270) 555-0123">
         </div>
 
         <div class="form-group">
-          <label for="message">Message / Questions</label>
-          <textarea id="message" name="message" rows="4" placeholder="I'd like more information regarding Lot 21 on Low Country Court..."></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
         </div>
 
-        <input type="hidden" name="_subject" value="New Lead: Lot 21 Low Country Court Inquiry">
-
-        <button type="submit" class="submit-btn">Send Inquiry</button>
+        <button type="submit" class="submit-btn">Send Message</button>
       </form>
-    </div>
-
-    <!-- Agent Footer Section -->
-    <footer class="footer-section">
-      <div class="agent-details-wrapper">
-        
-        <div class="agent-profile">
-          <img src="https://via.placeholder.com/90" alt="Patrick C. Washington" class="agent-avatar">
-          <div class="agent-info">
-            <div class="broker-line">Brokered by Pennington Properties | Aaron Pennington</div>
-            <div class="agent-name">Patrick C. Washington</div>
-            <a href="tel:5022308636" class="contact-link">📱 Direct: (502) 230-8636</a>
-            <a href="mailto:cwhomeky@gmail.com" class="contact-link">✉️ cwhomeky@gmail.com</a>
-            <div class="broker-line" style="margin-top: 4px;">Office: (270) 872-5469 | Elizabethtown, KY</div>
-          </div>
-        </div>
-
-        <div class="qr-box">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=mailto:cwhomeky@gmail.com" alt="Scan QR Code">
-        </div>
-
-      </div>
-
-      <div class="brokerage-logo">
-        <h3 style="color: red; font-family: sans-serif; text-transform: uppercase;">Pennington Properties</h3>
-      </div>
-    </footer>
+    </section>
 
   </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Pennington Properties</strong> | Aaron Pennington | Elizabethtown, KY</p>
+    <p style="margin-top: 0.5rem;">Direct: <a href="tel:2708725469">270-872-5469</a></p>
+    <p style="margin-top: 1.5rem; font-size: 0.85rem;">&copy; All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
