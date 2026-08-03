@@ -1,344 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lot 21 - Low Country Court, Hodgenville, KY</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pennington Properties | Real Estate Solutions</title>
+
   <style>
+    /* =========================================================
+       THEME COLOR VARIABLES
+       Adjust your brand colors here!
+       ========================================================= */
     :root {
-      --primary-blue: #1D3D8F;
-      --accent-gold: #F1B318;
-      --bg-light: #F4F6FB;
-      --card-bg: #FFFFFF;
-      --text-main: #222222;
-      --text-muted: #555555;
+      --primary-color: #0f172a;    /* Dark Navy Header/Footer */
+      --secondary-color: #1e293b;  /* Dark Slate Accents */
+      --accent-color: #2563eb;     /* Button & Link Blue */
+      --text-dark: #334155;        /* Body Text */
+      --bg-light: #f8fafc;         /* Site Background */
+      --card-bg: #ffffff;          /* Card Background */
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: var(--primary-blue);
-      color: var(--text-main);
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .flyer-container {
-      width: 100%;
-      max-width: 650px;
-      background-color: var(--primary-blue);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    /* Top Banner */
-    .top-banner {
-      background-color: var(--accent-gold);
-      color: #000;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      padding: 6px 24px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    }
-
-    /* Main Title */
-    .headline {
-      font-family: 'Great Vibes', cursive;
-      color: #FFFFFF;
-      font-size: 2.8rem;
-      text-align: center;
-      line-height: 1.2;
-      margin-top: 4px;
-    }
-
-    /* Address Bar */
-    .address-bar {
-      width: 100%;
-      background-color: #FFFFFF;
-      color: var(--primary-blue);
-      text-align: center;
-      padding: 10px 15px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      border-radius: 6px;
-      letter-spacing: 0.5px;
-    }
-
-    /* Info Badges (Price & Size) */
-    .info-badges {
+    /* Navigation */
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
-      width: 100%;
-      gap: 15px;
-    }
-
-    .badge {
-      flex: 1;
-      background-color: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #FFFFFF;
-      text-align: center;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    /* Card Layouts */
-    .card {
-      width: 100%;
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .plat-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .plat-images img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      border: 1px solid #E0E0E0;
-      object-fit: cover;
-    }
-
-    .description-text {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #333333;
-      margin-bottom: 20px;
-    }
-
-    .specs-list {
-      list-style: none;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #222222;
-      border-bottom: 1px solid #EEEEEE;
-      padding-bottom: 16px;
-      margin-bottom: 16px;
-    }
-
-    .specs-list li strong {
-      font-weight: 700;
-      color: #000;
-    }
-
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      font-weight: 700;
-      color: #222222;
-      font-size: 0.95rem;
-    }
-
-    .highlight-item {
-      display: flex;
       align-items: center;
-      gap: 6px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+    .brand-title { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.5px; }
+    nav a { color: #e2e8f0; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--accent-color); }
+    .nav-phone { background: var(--accent-color); padding: 0.5rem 1rem; border-radius: 4px; color: white !important; }
 
-    .highlight-item span {
-      color: var(--primary-blue);
-      font-weight: 900;
-    }
-
-    /* Lead Capture Form Styling */
-    .lead-form-card {
-      border: 2px solid var(--accent-gold);
-    }
-
-    .form-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--primary-blue);
-      margin-bottom: 6px;
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                  url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
       text-align: center;
+      padding: 6rem 1.5rem;
     }
-
-    .form-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-bottom: 16px;
+    .hero h1 { font-size: 2.75rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.25rem; max-width: 650px; margin: 0 auto 2rem; color: #cbd5e1; }
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background 0.2s;
     }
+    .cta-btn:hover { background-color: #1d4ed8; }
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    /* Container & Layout */
+    .container { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; }
+    .section-title { font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; }
+
+    /* Grid & Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
     }
+    .card:hover { transform: translateY(-4px); }
+    .card img { width: 100%; height: 220px; object-fit: cover; }
+    .card-content { padding: 1.5rem; }
+    .card-title { font-size: 1.25rem; font-weight: bold; color: var(--primary-color); margin-bottom: 0.5rem; }
+    .card-subtitle { color: var(--accent-color); font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    /* Form */
+    .contact-wrapper {
+      background: var(--card-bg);
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 2.5rem;
+      max-width: 700px;
+      margin: 4rem auto 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
-
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .form-group input,
-    .form-group textarea {
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+    .form-group input, .form-group textarea {
       width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #CCCCCC;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      background-color: #FAFAFA;
-      transition: border-color 0.2s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary-blue);
-      background-color: #FFFFFF;
-    }
-
-    .submit-btn {
-      background-color: var(--primary-blue);
-      color: #FFFFFF;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
+      padding: 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
       font-size: 1rem;
-      padding: 12px;
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--accent-color);
+      color: white;
       border: none;
-      border-radius: 6px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
-      margin-top: 6px;
     }
+    .submit-btn:hover { background: #1d4ed8; }
 
-    .submit-btn:hover {
-      background-color: #122861;
-    }
-
+    /* Footer */
     footer {
-      color: #FFFFFF;
+      background: var(--primary-color);
+      color: #94a3b8;
       text-align: center;
-      font-size: 0.85rem;
-      margin-top: 10px;
+      padding: 2.5rem 1.5rem;
+      margin-top: 5rem;
     }
+    footer a { color: #f1f5f9; text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <div class="flyer-container">
-    
-    <!-- Top Banner -->
-    <div class="top-banner">Featured Land Listing</div>
+  <!-- NAVIGATION HEADER -->
+  <header>
+    <div class="brand-title" id="cfg-company-name"></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#featured">Listings</a>
+      <a href="#contact">Contact</a>
+      <a href="" id="cfg-nav-phone-link" class="nav-phone"><span id="cfg-nav-phone"></span></a>
+    </nav>
+  </header>
 
-    <!-- Main Title -->
-    <h1 class="headline">Build Your Dream Home</h1>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1 id="cfg-hero-headline"></h1>
+    <p id="cfg-hero-subheadline"></p>
+    <a href="#contact" class="cta-btn">Get In Touch Today</a>
+  </section>
 
-    <!-- Address Bar -->
-    <div class="address-bar">
-      LOT 21 LOW COUNTRY COURT, HODGENVILLE, KY
-    </div>
+  <!-- MAIN CONTAINER -->
+  <main class="container">
 
-    <!-- Info Badges -->
-    <div class="info-badges">
-      <div class="badge">PRICE: CONTRACT / INQUIRE</div>
-      <div class="badge">LOT SIZE: 1.0+ ACRES</div>
-    </div>
+    <!-- ABOUT SECTION -->
+    <section id="about" style="margin-bottom: 4rem; text-align: center;">
+      <h2 class="section-title">Welcome</h2>
+      <p id="cfg-about-text" style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #475569;"></p>
+    </section>
 
-    <!-- Plat Images Card -->
-    <div class="card">
-      <div class="plat-images">
-        <img src="https://via.placeholder.com/400x300?text=Plat+Map+Boundary" alt="Plat Map Boundary">
-        <img src="https://via.placeholder.com/400x300?text=Lot+Overview" alt="Lot Overview">
+    <!-- DYNAMIC LISTINGS / SERVICES GRID -->
+    <section id="featured">
+      <h2 class="section-title">Featured Properties & Services</h2>
+      <div class="grid" id="listings-grid">
+        <!-- Cards render dynamically from SITE_CONFIG below -->
       </div>
-    </div>
+    </section>
 
-    <!-- Property Details Card -->
-    <div class="card">
-      <p class="description-text">
-        Great opportunity to build in a premier subdivision! Lot 21 offers an ideal layout on Low Country Court with utility access nearby and plenty of space for your custom build.
-      </p>
+    <!-- FORMSPREE CONTACT SECTION -->
+    <section id="contact" class="contact-wrapper">
+      <h2 class="section-title" style="margin-bottom: 0.5rem;">Contact Us</h2>
+      <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Send a direct message and we will get back to you promptly.</p>
 
-      <ul class="specs-list">
-        <li><strong>Location:</strong> Hodgenville, KY</li>
-        <li><strong>Subdivision:</strong> Low Country Court</li>
-        <li><strong>Property Type:</strong> Residential Land / Building Lot</li>
-      </ul>
-
-      <div class="highlights-grid">
-        <div class="highlight-item"><span>✓</span> Ready to Build</div>
-        <div class="highlight-item"><span>✓</span> Quiet Cul-de-sac</div>
-        <div class="highlight-item"><span>✓</span> Utilities Nearby</div>
-        <div class="highlight-item"><span>✓</span> Excellent Location</div>
-      </div>
-    </div>
-
-    <!-- Formspree Lead Capture Card -->
-    <div class="card lead-form-card">
-      <h2 class="form-title">Interested in Lot 21?</h2>
-      <p class="form-subtitle">Fill out the form below for plat maps, restrictions, or to schedule a walk.</p>
-
-      <!-- Replace YOUR_FORMSPREE_ID with your Formspree endpoint -->
-      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="contact-form">
+      <form id="cfg-contact-form" action="" method="POST">
         <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="John Doe" required>
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="name" placeholder="John Doe" required>
         </div>
 
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          <label for="email-address">Email Address</label>
+          <input type="email" id="email-address" name="email" placeholder="name@example.com" required>
         </div>
 
         <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="(270) 555-0199">
+          <label for="phone-number">Phone Number</label>
+          <input type="tel" id="phone-number" name="phone" placeholder="(270) 555-0123">
         </div>
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="3" placeholder="I would like more information on Lot 21..."></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">Request Information</button>
+        <button type="submit" class="submit-btn">Send Message</button>
       </form>
-    </div>
+    </section>
 
-    <footer>
-      <p>Pennington Properties | Elizabethtown & Surrounding Areas</p>
-    </footer>
+  </main>
 
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    <p><strong id="cfg-footer-company"></strong> | <span id="cfg-footer-agent"></span> | <span id="cfg-footer-location"></span></p>
+    <p style="margin-top: 0.5rem;">Direct: <a href="" id="cfg-footer-phone-link"><span id="cfg-footer-phone"></span></a></p>
+    <p style="margin-top: 1.5rem; font-size: 0.85rem;">&copy; All Rights Reserved.</p>
+  </footer>
 
+  <!-- =========================================================
+       EASY EDIT CONFIGURATION BLOCK
+       Edit text, contacts, form endpoints, and cards here!
+       ========================================================= -->
+  <script>
+    const SITE_CONFIG = {
+      // Company & Contact Details
+      companyName: "Pennington Properties",
+      agentName: "Aaron Pennington",
+      location: "Elizabethtown, KY",
+      phoneNumber: "270-872-5469",
+      formspreeEndpoint: "https://formspree.io/f/mzdnnqdn",
+
+      // Hero Banner Text
+      heroHeadline: "Your Trusted Local Real Estate Partner",
+      heroSubheadline: "Providing professional real estate services across Elizabethtown and surrounding areas.",
+
+      // About Text
+      aboutText: "Whether you are looking to buy your home, sell a property, or explore local investment opportunities, we provide personalized service and local expertise every step of the way.",
+
+      // Listings & Focus Cards (Add, remove, or edit items in this array)
+      cards: [
+        {
+          title: "Residential Real Estate",
+          subtitle: "Buying & Selling",
+          description: "Guiding homeowners and buyers through seamless residential property transactions.",
+          image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          title: "Property Management",
+          subtitle: "Full Service Solutions",
+          description: "Comprehensive management services ensuring long-term value and operational ease.",
+          image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          title: "Local Market Expertise",
+          subtitle: "Elizabethtown & Beyond",
+          description: "In-depth knowledge of local neighborhood trends, valuation, and market conditions.",
+          image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    };
+
+    // --- AUTOMATIC PAGE POPULATION (Do not edit below unless changing functionality) ---
+    document.addEventListener("DOMContentLoaded", () => {
+      // Bind basic info
+      document.getElementById("cfg-company-name").textContent = SITE_CONFIG.companyName;
+      document.getElementById("cfg-nav-phone").textContent = SITE_CONFIG.phoneNumber;
+      document.getElementById("cfg-nav-phone-link").href = `tel:${SITE_CONFIG.phoneNumber.replace(/[^0-9]/g, '')}`;
+      
+      document.getElementById("cfg-hero-headline").textContent = SITE_CONFIG.heroHeadline;
+      document.getElementById("cfg-hero-subheadline").textContent = SITE_CONFIG.heroSubheadline;
+      document.getElementById("cfg-about-text").textContent = SITE_CONFIG.aboutText;
+
+      document.getElementById("cfg-contact-form").action = SITE_CONFIG.formspreeEndpoint;
+
+      document.getElementById("cfg-footer-company").textContent = SITE_CONFIG.companyName;
+      document.getElementById("cfg-footer-agent").textContent = SITE_CONFIG.agentName;
+      document.getElementById("cfg-footer-location").textContent = SITE_CONFIG.location;
+      document.getElementById("cfg-footer-phone").textContent = SITE_CONFIG.phoneNumber;
+      document.getElementById("cfg-footer-phone-link").href = `tel:${SITE_CONFIG.phoneNumber.replace(/[^0-9]/g, '')}`;
+
+      // Render Cards
+      const grid = document.getElementById("listings-grid");
+      grid.innerHTML = SITE_CONFIG.cards.map(card => `
+        <div class="card">
+          <img src="${card.image}" alt="${card.title}">
+          <div class="card-content">
+            <div class="card-title">${card.title}</div>
+            <div class="card-subtitle">${card.subtitle}</div>
+            <p>${card.description}</p>
+          </div>
+        </div>
+      `).join('');
+    });
+  </script>
 </body>
 </html>
