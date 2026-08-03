@@ -1,550 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Realtor Universal Ad Studio</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- html2canvas -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- Google Font Backup (Great Vibes - Modern Script Fallback for Adeptly) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <style>
-        /* Format Dimensions */
-        .format-feed { width: 450px; min-height: 450px; }
-        .format-story { width: 360px; min-height: 640px; }
-        .format-flyer { width: 450px; min-height: 580px; }
-        
-        /* Dynamic Theme Styles */
-        .theme-dark { background-color: #0f172a !important; color: #f8fafc !important; }
-        .theme-dark .card-bg { background-color: #1e293b !important; color: #f8fafc !important; }
-        .theme-dark .text-muted { color: #94a3b8 !important; }
-        
-        .theme-light { background-color: #1e3a8a !important; color: #ffffff !important; }
-        .theme-light .card-bg { background-color: #ffffff !important; color: #1e293b !important; }
-        .theme-light .text-muted { color: #475569 !important; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lot 21 - Low Country Court, Hodgenville, KY</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-blue: #1D3D8F;
+      --accent-gold: #F1B318;
+      --bg-light: #F4F6FB;
+      --card-bg: #FFFFFF;
+      --text-main: #222222;
+      --text-muted: #555555;
+    }
 
-        /* Global Ad Body Font (Century Modern Serif Fallback Chain) */
-        .century-body {
-            font-family: 'CenturyCustom', 'Century Schoolbook', 'Century', 'Georgia', 'Cambria', serif;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Headline Script Font (Adeptly Fallback Chain) */
-        .script-headline {
-            font-family: 'AdeptlyCustom', 'Great Vibes', cursive, sans-serif;
-        }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--primary-blue);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
 
-        /* Headshot Edge Smoothing & Dynamic Transform CSS */
-        .headshot-smooth {
-            filter: contrast(1.03) brightness(1.02);
-            object-fit: cover;
-            border-radius: 9999px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-        }
+    .flyer-container {
+      width: 100%;
+      max-width: 650px;
+      background-color: var(--primary-blue);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
 
-        .draggable-element {
-            cursor: move;
-            transition: transform 0.05s ease-out;
-            user-select: none;
-        }
-    </style>
+    /* Top Banner */
+    .top-banner {
+      background-color: var(--accent-gold);
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      padding: 6px 24px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    /* Main Title */
+    .headline {
+      font-family: 'Great Vibes', cursive;
+      color: #FFFFFF;
+      font-size: 2.8rem;
+      text-align: center;
+      line-height: 1.2;
+      margin-top: 4px;
+    }
+
+    /* Address Bar */
+    .address-bar {
+      width: 100%;
+      background-color: #FFFFFF;
+      color: var(--primary-blue);
+      text-align: center;
+      padding: 10px 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Info Badges (Price & Size) */
+    .info-badges {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 15px;
+    }
+
+    .badge {
+      flex: 1;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* Card Layouts */
+    .card {
+      width: 100%;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .plat-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .plat-images img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #E0E0E0;
+      object-fit: cover;
+    }
+
+    .description-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .specs-list {
+      list-style: none;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #222222;
+      border-bottom: 1px solid #EEEEEE;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+
+    .specs-list li strong {
+      font-weight: 700;
+      color: #000;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-weight: 700;
+      color: #222222;
+      font-size: 0.95rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .highlight-item span {
+      color: var(--primary-blue);
+      font-weight: 900;
+    }
+
+    /* Lead Capture Form Styling */
+    .lead-form-card {
+      border: 2px solid var(--accent-gold);
+    }
+
+    .form-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .form-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #CCCCCC;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background-color: #FAFAFA;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      background-color: #FFFFFF;
+    }
+
+    .submit-btn {
+      background-color: var(--primary-blue);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background-color: #142B66;
+    }
+
+    /* Agent Footer Section */
+    .footer-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .agent-details-wrapper {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .agent-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .agent-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #FFFFFF;
+      object-fit: cover;
+    }
+
+    .agent-info {
+      color: #FFFFFF;
+    }
+
+    .broker-line {
+      font-size: 0.8rem;
+      color: #CBD5E1;
+      margin-bottom: 4px;
+    }
+
+    .agent-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .contact-link {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    .qr-box {
+      background: #FFFFFF;
+      padding: 6px;
+      border-radius: 8px;
+    }
+
+    .qr-box img {
+      width: 80px;
+      height: 80px;
+      display: block;
+    }
+
+    .brokerage-logo {
+      background-color: #000000;
+      padding: 8px 16px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      .headline { font-size: 2.2rem; }
+      .agent-details-wrapper { flex-direction: column; text-align: center; }
+      .agent-profile { flex-direction: column; }
+      .highlights-grid { grid-template-columns: 1fr; }
+      .plat-images { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="bg-slate-100 p-4 md:p-8 font-sans">
+<body>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
-        <!-- LEFT COLUMN: Universal Controls & Input Form (5 cols) -->
-        <div class="lg:col-span-5 bg-white p-6 rounded-xl shadow-md space-y-4 max-h-[90vh] overflow-y-auto">
-            <h2 class="text-2xl font-bold text-slate-800 border-b pb-2">Universal Ad Control Panel</h2>
-            
-            <!-- 1. Canvas Aspect Ratio & Themes -->
-            <div class="space-y-2">
-                <label class="block text-xs font-bold uppercase text-slate-500">1. Aspect Ratio & Theme</label>
-                <div class="grid grid-cols-3 gap-2">
-                    <button onclick="setFormat('feed')" class="py-2 text-xs font-bold border rounded-lg hover:bg-slate-50 focus:bg-blue-900 focus:text-white">Feed (1:1)</button>
-                    <button onclick="setFormat('story')" class="py-2 text-xs font-bold border rounded-lg hover:bg-slate-50 focus:bg-blue-900 focus:text-white">Story (9:16)</button>
-                    <button onclick="setFormat('flyer')" class="py-2 text-xs font-bold border rounded-lg hover:bg-slate-50 focus:bg-blue-900 focus:text-white">Flyer (8.5x11)</button>
-                </div>
-                <div class="grid grid-cols-2 gap-2 pt-1">
-                    <button onclick="setTheme('light')" class="py-2 text-xs font-bold border rounded-lg bg-blue-900 text-white">Classic Navy</button>
-                    <button onclick="setTheme('dark')" class="py-2 text-xs font-bold border rounded-lg bg-slate-900 text-white">Modern Dark</button>
-                </div>
-            </div>
-
-            <!-- 2. Custom Fonts Engine -->
-            <div class="space-y-2 border-t pt-2">
-                <label class="block text-xs font-bold uppercase text-slate-500">2. Font File Uploads</label>
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="block text-[10px] font-semibold text-slate-600">Headline (Adeptly)</label>
-                        <input type="file" id="font-upload" accept=".otf,.ttf,.woff,.woff2" class="w-full text-xs text-slate-500 file:mr-1 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[10px] file:bg-blue-50">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-semibold text-slate-600">Body (Century)</label>
-                        <input type="file" id="body-font-upload" accept=".otf,.ttf,.woff,.woff2" class="w-full text-xs text-slate-500 file:mr-1 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[10px] file:bg-blue-50">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. MLS Auto-Fill Box -->
-            <hr>
-            <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 space-y-2">
-                <label class="block text-xs font-bold uppercase text-blue-900">⚡ MLS Import / Auto-Fill Box</label>
-                <textarea id="mls-raw-input" rows="2" placeholder="Paste MLS details here..." class="w-full p-2 border rounded-lg text-xs bg-white"></textarea>
-                <button onclick="parseMLSData()" class="w-full bg-blue-900 text-white py-1.5 rounded-lg font-bold hover:bg-blue-800 transition text-xs shadow-sm">
-                    Auto-Populate Ad Fields
-                </button>
-            </div>
-
-            <!-- 4. Element-by-Element Granular Adjuster -->
-            <hr>
-            <h3 class="text-xs font-bold uppercase text-slate-700">4. Granular Element Controls</h3>
-
-            <!-- Badge Adjuster -->
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-2">
-                <div class="flex justify-between items-center">
-                    <span class="text-xs font-bold text-slate-700">Status Badge</span>
-                    <input type="text" id="input-badge" value="NEW LISTING" class="p-1 border rounded text-xs w-1/2">
-                </div>
-                <div class="grid grid-cols-3 gap-2 text-[10px]">
-                    <div><span>Scale:</span><input type="range" id="badge-scale" min="50" max="200" value="100" class="w-full accent-blue-900"></div>
-                    <div><span>Shift X:</span><input type="range" id="badge-x" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                    <div><span>Shift Y:</span><input type="range" id="badge-y" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                </div>
-            </div>
-
-            <!-- Headline Adjuster -->
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-2">
-                <div class="flex justify-between items-center">
-                    <span class="text-xs font-bold text-slate-700">Headline</span>
-                    <input type="text" id="input-headline" value="Your Dream Build Lot in Scenic LaRue County!" class="p-1 border rounded text-xs w-2/3">
-                </div>
-                <div class="grid grid-cols-3 gap-2 text-[10px]">
-                    <div><span>Font Size:</span><input type="range" id="headline-scale" min="12" max="48" value="24" class="w-full accent-blue-900"></div>
-                    <div><span>Shift X:</span><input type="range" id="headline-x" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                    <div><span>Shift Y:</span><input type="range" id="headline-y" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                </div>
-            </div>
-
-            <!-- Address Banner Adjuster (Blank by Default) -->
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-2">
-                <div class="flex justify-between items-center">
-                    <span class="text-xs font-bold text-slate-700">Address Banner</span>
-                    <input type="text" id="input-address" value="" placeholder="Type property address here..." class="p-1 border rounded text-xs w-2/3">
-                </div>
-                <div class="grid grid-cols-3 gap-2 text-[10px]">
-                    <div><span>Font Size:</span><input type="range" id="address-scale" min="8" max="24" value="12" class="w-full accent-blue-900"></div>
-                    <div><span>Shift X:</span><input type="range" id="address-x" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                    <div><span>Shift Y:</span><input type="range" id="address-y" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                </div>
-            </div>
-
-            <!-- Price & Specs Adjuster -->
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-2">
-                <div class="grid grid-cols-2 gap-2">
-                    <input type="text" id="input-price" value="$49,000" class="p-1 border rounded text-xs">
-                    <input type="text" id="input-acres" value="0.68 AC" class="p-1 border rounded text-xs">
-                </div>
-                <div class="grid grid-cols-3 gap-2 text-[10px]">
-                    <div><span>Scale:</span><input type="range" id="specs-scale" min="50" max="200" value="100" class="w-full accent-blue-900"></div>
-                    <div><span>Shift X:</span><input type="range" id="specs-x" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                    <div><span>Shift Y:</span><input type="range" id="specs-y" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                </div>
-            </div>
-
-            <!-- Photos Container Adjuster -->
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-2">
-                <label class="block text-xs font-bold text-slate-700">Main Photo Canvas Container</label>
-                <input type="file" id="image-upload" accept="image/*" multiple class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[10px] file:bg-blue-50">
-                <div id="image-list" class="flex flex-wrap gap-2 pt-1"></div>
-                <div class="grid grid-cols-3 gap-2 text-[10px]">
-                    <div><span>Container Height:</span><input type="range" id="photo-height" min="100" max="400" value="240" class="w-full accent-blue-900"></div>
-                    <div><span>Active Scale:</span><input type="range" id="input-scale" min="10" max="300" value="100" class="w-full accent-blue-900"></div>
-                    <div><span>Active Shift X:</span><input type="range" id="input-pos-x" min="-200" max="200" value="0" class="w-full accent-blue-900"></div>
-                </div>
-            </div>
-
-            <!-- Description & Features Adjuster -->
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-2">
-                <span class="text-xs font-bold text-slate-700">Description Box</span>
-                <textarea id="input-description" rows="2" class="w-full p-1 border rounded text-xs">Discover your opportunity to build the home of your dreams on this newly developed lot in Magnolia Fields!</textarea>
-                <div class="grid grid-cols-3 gap-2 text-[10px]">
-                    <div><span>Font Size:</span><input type="range" id="desc-scale" min="6" max="18" value="10" class="w-full accent-blue-900"></div>
-                    <div><span>Shift X:</span><input type="range" id="desc-x" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                    <div><span>Shift Y:</span><input type="range" id="desc-y" min="-150" max="150" value="0" class="w-full accent-blue-900"></div>
-                </div>
-            </div>
-
-            <!-- Section 4 Controls (Headshot, Contact, QR, Logo) -->
-            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-3">
-                <label class="block text-xs font-bold uppercase text-amber-900">Footer / Section 4 Adjuster</label>
-
-                <!-- Headshot -->
-                <div>
-                    <label class="block text-[11px] font-bold text-amber-900">Headshot Image</label>
-                    <input type="file" id="headshot-upload" accept="image/*" class="w-full text-xs text-slate-500 file:mr-1 file:py-0.5 file:px-2 file:border-0 file:text-[10px] file:bg-white">
-                    <div class="grid grid-cols-3 gap-2 text-[10px] pt-1">
-                        <div><span>Scale:</span><input type="range" id="input-hs-scale" min="10" max="300" value="100" class="w-full accent-amber-700"></div>
-                        <div><span>Shift X:</span><input type="range" id="input-hs-pos-x" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                        <div><span>Shift Y:</span><input type="range" id="input-hs-pos-y" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                    </div>
-                </div>
-
-                <!-- Contact Text -->
-                <div>
-                    <label class="block text-[11px] font-bold text-amber-900">Contact Text Block</label>
-                    <input type="text" id="input-agent" value="Patrick Washington | (216) 336-5533" class="w-full p-1 border rounded text-xs bg-white mb-1">
-                    <input type="email" id="input-email" value="CWHOMEKY@GMAIL.COM" class="w-full p-1 border rounded text-xs bg-white mb-1">
-                    <div class="grid grid-cols-3 gap-2 text-[10px]">
-                        <div><span>Font Size:</span><input type="range" id="input-txt-size" min="8" max="24" value="12" class="w-full accent-amber-700"></div>
-                        <div><span>Shift X:</span><input type="range" id="input-txt-pos-x" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                        <div><span>Shift Y:</span><input type="range" id="input-txt-pos-y" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                    </div>
-                </div>
-
-                <!-- QR Code -->
-                <div>
-                    <label class="block text-[11px] font-bold text-amber-900">QR Code</label>
-                    <input type="file" id="qr-upload" accept="image/*" class="w-full text-xs text-slate-500 file:mr-1 file:py-0.5 file:px-2 file:border-0 file:text-[10px] file:bg-white mb-1">
-                    <input type="text" id="input-qr-url" value="https://claudewashington.realtor/" class="w-full p-1 border rounded text-xs bg-white mb-1">
-                    <div class="grid grid-cols-3 gap-2 text-[10px]">
-                        <div><span>Scale:</span><input type="range" id="input-qr-scale" min="10" max="300" value="100" class="w-full accent-amber-700"></div>
-                        <div><span>Shift X:</span><input type="range" id="input-qr-pos-x" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                        <div><span>Shift Y:</span><input type="range" id="input-qr-pos-y" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                    </div>
-                </div>
-
-                <!-- Brokerage Logo -->
-                <div>
-                    <label class="block text-[11px] font-bold text-amber-900">Brokerage Logo (PENNBLACK.png)</label>
-                    <input type="file" id="logo-upload" accept="image/*" class="w-full text-xs text-slate-500 file:mr-1 file:py-0.5 file:px-2 file:border-0 file:text-[10px] file:bg-white mb-1">
-                    <div class="grid grid-cols-3 gap-2 text-[10px]">
-                        <div><span>Scale:</span><input type="range" id="input-logo-scale" min="10" max="300" value="100" class="w-full accent-amber-700"></div>
-                        <div><span>Shift X:</span><input type="range" id="input-logo-pos-x" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                        <div><span>Shift Y:</span><input type="range" id="input-logo-pos-y" min="-150" max="150" value="0" class="w-full accent-amber-700"></div>
-                    </div>
-                </div>
-            </div>
-
-            <button onclick="downloadAd()" class="w-full bg-emerald-600 text-white py-3 rounded-lg font-bold hover:bg-emerald-700 transition text-sm shadow-md">
-                Download High-Res Graphic (100% Free)
-            </button>
-        </div>
-
-        <!-- RIGHT COLUMN: Interactive Live Canvas Preview (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col items-center justify-start min-h-[600px] bg-slate-200 p-6 rounded-xl border border-dashed border-slate-400">
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Live Interactive Canvas</span>
-            
-            <div id="ad-template" class="format-feed theme-light p-4 rounded-lg shadow-2xl flex flex-col justify-between text-center transition-all relative century-body overflow-hidden">
-                
-                <!-- Status Badge Wrapper -->
-                <div id="badge-wrapper" class="flex justify-center draggable-element">
-                    <span id="display-badge" class="bg-amber-400 text-slate-900 font-extrabold text-[10px] uppercase px-3 py-0.5 rounded-full shadow tracking-wider">NEW LISTING</span>
-                </div>
-
-                <!-- Headline Wrapper -->
-                <div id="headline-wrapper" class="py-1 text-2xl tracking-wide leading-tight script-headline draggable-element">
-                    Your Dream Build Lot in Scenic LaRue County!
-                </div>
-
-                <!-- Address Banner Wrapper (Blank by default) -->
-                <div id="address-wrapper" class="card-bg mx-2 py-1.5 px-3 rounded-md font-bold text-xs shadow-md tracking-wide draggable-element">
-                    <span id="display-address"></span>
-                </div>
-
-                <!-- Specs Wrapper -->
-                <div id="specs-wrapper" class="flex justify-around my-2 text-[11px] font-bold draggable-element">
-                    <span class="bg-black/20 px-2.5 py-1 rounded shadow" id="display-price">💲 Price: $49,000</span>
-                    <span class="bg-black/20 px-2.5 py-1 rounded shadow" id="display-acres">📐 Size: 0.68 AC</span>
-                </div>
-
-                <!-- Main Photo Container -->
-                <div id="image-container" class="w-full h-[240px] my-1 rounded-lg shadow-md overflow-hidden relative border-2 border-white/20 bg-white flex items-center justify-center gap-1 p-1">
-                    <span id="placeholder-text" class="text-xs font-semibold text-slate-400">Upload Photos Above</span>
-                </div>
-
-                <!-- Description & Features Wrapper -->
-                <div id="desc-wrapper" class="card-bg mx-1 my-2 p-2.5 rounded text-left text-[10px] leading-relaxed space-y-1.5 shadow draggable-element">
-                    <p id="display-description" class="text-slate-800">Discover your opportunity to build the home of your dreams on this newly developed lot in Magnolia Fields!</p>
-                    <div class="grid grid-cols-2 gap-1 font-semibold text-[10px] border-t border-slate-200/50 pt-1.5">
-                        <div>✔ Build-Ready Site</div>
-                        <div>✔ <span id="display-school">LaRue County Schools</span></div>
-                        <div>✔ Scenic Location</div>
-                        <div>✔ <span id="display-mls">MLS #1234567</span></div>
-                    </div>
-                </div>
-
-                <!-- Footer Section (Headshot, Contact, QR) -->
-                <div class="flex items-center justify-between border-t border-white/10 pt-2 pb-2 px-1 gap-2 relative">
-                    <!-- Headshot Wrapper -->
-                    <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center draggable-element" id="headshot-wrapper">
-                        <img id="display-headshot" src="https://via.placeholder.com/150x150?text=Headshot" class="w-full h-full headshot-smooth pointer-events-none" alt="Patrick Washington">
-                    </div>
-
-                    <!-- Contact Details Wrapper -->
-                    <div id="contact-text-wrapper" class="text-left draggable-element">
-                        <p class="text-[9px] opacity-80">Listed & Brokered by: Pennington Properties</p>
-                        <p class="text-xs font-bold pt-0.5" id="display-agent">Call Patrick Washington at (216) 336-5533</p>
-                        <p class="text-[10px] font-semibold text-blue-200" id="display-email">✉ CWHOMEKY@GMAIL.COM</p>
-                    </div>
-
-                    <!-- QR Code Wrapper -->
-                    <div id="qr-wrapper" class="bg-white p-1 rounded-md shadow-md flex-shrink-0 ml-1 draggable-element">
-                        <a id="display-qr-link" href="https://claudewashington.realtor/" target="_blank" title="Click to Visit Website">
-                            <img id="display-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://claudewashington.realtor/" class="w-11 h-11 object-contain pointer-events-none" alt="Claude Washington Realtor QR Code">
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Brokerage Logo Wrapper -->
-                <div id="logo-wrapper" class="w-full flex justify-center items-center pb-1 pt-1 border-t border-white/10 mt-auto draggable-element">
-                    <img id="display-logo" src="https://via.placeholder.com/250x40?text=Pennington+Properties+Logo" class="max-h-8 max-w-[80%] object-contain pointer-events-none">
-                </div>
-
-            </div>
-        </div>
-
+  <main class="flyer-container">
+    
+    <!-- Top Banner -->
+    <div class="top-banner">
+      DON'T MISS THIS OPPORTUNITY!
     </div>
 
-    <!-- JavaScript Engine -->
-    <script>
-        // Sync Basic Inputs
-        const syncField = (inputId, displayId, prefix = '') => {
-            const input = document.getElementById(inputId);
-            if (input) {
-                input.addEventListener('input', (e) => {
-                    document.getElementById(displayId).innerText = prefix + e.target.value;
-                });
-            }
-        };
+    <!-- Title Header -->
+    <h1 class="headline">
+      Your Dream Build Lot in Scenic LaRue County!
+    </h1>
 
-        syncField('input-badge', 'display-badge');
-        syncField('input-headline', 'headline-wrapper');
-        syncField('input-address', 'display-address');
-        syncField('input-price', 'display-price', '💲 Price: ');
-        syncField('input-acres', 'display-acres', '📐 Size: ');
-        syncField('input-description', 'display-description');
-        syncField('input-agent', 'display-agent', 'Call ');
-        syncField('input-email', 'display-email', '✉ ');
+    <!-- Address Bar -->
+    <div class="address-bar">
+      LOT 21, LOW COUNTRY COURT, HODGENVILLE, KY., 42748
+    </div>
 
-        // MLS Auto-Fill Logic
-        function parseMLSData() {
-            const rawText = document.getElementById('mls-raw-input').value;
-            if (!rawText.trim()) return;
+    <!-- Info Badges -->
+    <div class="info-badges">
+      <div class="badge">💲 Price: $49,000</div>
+      <div class="badge">📐 Size: 0.82 AC</div>
+    </div>
 
-            const lotMatch = rawText.match(/lot\s*#?\s*(\d+[A-Za-z]?)/i);
-            const lotNum = lotMatch ? `Lot ${lotMatch[1]}` : 'Lot --';
+    <!-- Image Gallery -->
+    <div class="card">
+      <div class="plat-images">
+        <img src="https://via.placeholder.com/300x400?text=Plat+Map+Detail" alt="Plat Map Lot Detail">
+        <img src="https://via.placeholder.com/300x400?text=Subdivision+Overview" alt="Subdivision Overview Map">
+      </div>
+    </div>
 
-            const cszMatch = rawText.match(/([A-Za-z\s]+),\s*([A-Z]{2})\s*(\d{5})/);
-            let addressFormatted = lotNum;
+    <!-- Property Details -->
+    <div class="card">
+      <p class="description-text">
+        Discover your opportunity to build the home of your dreams on this newly developed lot in Magnolia Fields! Here is your opportunity to build the home of your dreams on one of these newly developed lots nestled in the heart of scenic LaRue County, Kentucky. These pristine, build-ready lots are situated in a peaceful rural setting while still offering convenient access to nearby amenities, schools, and commuter routes.
+      </p>
 
-            if (cszMatch) {
-                addressFormatted = `${lotNum}, ${cszMatch[1].trim()}, ${cszMatch[2].trim()} ${cszMatch[3].trim()}`;
-            }
+      <ul class="specs-list">
+        <li><strong>Topography:</strong> Level</li>
+        <li><strong>Water:</strong> County</li>
+        <li><strong>Sewer:</strong> Septic System</li>
+        <li><strong>Electricity:</strong> Available - On Property</li>
+        <li><strong>Fence:</strong> None</li>
+        <li><strong>Outer Structures:</strong> None</li>
+        <li><strong>Location Features:</strong> County</li>
+      </ul>
 
-            document.getElementById('input-address').value = addressFormatted;
-            document.getElementById('display-address').innerText = addressFormatted;
+      <div class="highlights-grid">
+        <div class="highlight-item"><span>✓</span> Build-Ready Site</div>
+        <div class="highlight-item"><span>✓</span> LaRue County Schools</div>
+        <div class="highlight-item"><span>✓</span> Scenic Location</div>
+        <div class="highlight-item"><span>✓</span> MLS #1234567</div>
+      </div>
+    </div>
 
-            const priceMatch = rawText.match(/\$\s*[\d,]+/);
-            if (priceMatch) {
-                document.getElementById('input-price').value = priceMatch[0];
-                document.getElementById('display-price').innerText = '💲 Price: ' + priceMatch[0];
-            }
+    <!-- Built-in Lead Capture Form -->
+    <div class="card lead-form-card">
+      <h2 class="form-title">Interested in Lot 21?</h2>
+      <p class="form-subtitle">Fill out the form below to request a private walkthrough or more details.</p>
+      
+      <!-- Form Endpoint configured via Formspree -->
+      <form action="https://formspree.io/f/cwhomeky@gmail.com" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="name" placeholder="John Doe" required>
+        </div>
 
-            const acresMatch = rawText.match(/(\d+(\.\d+)?)\s*(acres?|ac|sqft|sq\.?\s*ft)/i);
-            if (acresMatch) {
-                document.getElementById('input-acres').value = acresMatch[0].toUpperCase();
-                document.getElementById('display-acres').innerText = '📐 Size: ' + acresMatch[0].toUpperCase();
-            }
+        <div class="form-group">
+          <label for="email-address">Email Address</label>
+          <input type="email" id="email-address" name="email" placeholder="john@example.com" required>
+        </div>
 
-            if (rawText.length > 50) {
-                document.getElementById('input-description').value = rawText.trim();
-                document.getElementById('display-description').innerText = rawText.trim();
-            }
-        }
+        <div class="form-group">
+          <label for="phone-number">Phone Number</label>
+          <input type="tel" id="phone-number" name="phone" placeholder="(502) 555-0199">
+        </div>
 
-        // Generic Element Transform Engine
-        function attachTransform(sliderScaleId, sliderXId, sliderYId, targetElementId, isFontSize = false) {
-            let scale = isFontSize ? 12 : 100, x = 0, y = 0;
-            const target = document.getElementById(targetElementId);
+        <div class="form-group">
+          <label for="message">Message / Questions</label>
+          <textarea id="message" name="message" rows="4" placeholder="I'd like more information regarding Lot 21 on Low Country Court..."></textarea>
+        </div>
 
-            const apply = () => {
-                if (isFontSize) {
-                    target.style.fontSize = `${scale}px`;
-                    target.style.transform = `translate(${x}px, ${y}px)`;
-                } else {
-                    target.style.transform = `translate(${x}px, ${y}px) scale(${scale / 100})`;
-                }
-            };
+        <!-- Hidden input to specify custom email subject line -->
+        <input type="hidden" name="_subject" value="New Lead: Lot 21 Low Country Court Inquiry">
 
-            document.getElementById(sliderScaleId).addEventListener('input', (e) => { scale = e.target.value; apply(); });
-            document.getElementById(sliderXId).addEventListener('input', (e) => { x = e.target.value; apply(); });
-            document.getElementById(sliderYId).addEventListener('input', (e) => { y = e.target.value; apply(); });
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
 
-            // Mouse Drag Support
-            let isDragging = false, startX, startY;
-            target.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                startX = e.clientX - x;
-                startY = e.clientY - y;
-                const onMouseMove = (moveEvent) => {
-                    if (!isDragging) return;
-                    x = moveEvent.clientX - startX;
-                    y = moveEvent.clientY - startY;
-                    document.getElementById(sliderXId).value = x;
-                    document.getElementById(sliderYId).value = y;
-                    apply();
-                };
-                const onMouseUp = () => {
-                    isDragging = false;
-                    window.removeEventListener('mousemove', onMouseMove);
-                    window.removeEventListener('mouseup', onMouseUp);
-                };
-                window.addEventListener('mousemove', onMouseMove);
-                window.addEventListener('mouseup', onMouseUp);
-            });
-        }
+    <!-- Agent Footer Section -->
+    <footer class="footer-section">
+      <div class="agent-details-wrapper">
+        
+        <div class="agent-profile">
+          <img src="https://via.placeholder.com/90" alt="Patrick C. Washington" class="agent-avatar">
+          <div class="agent-info">
+            <div class="broker-line">Brokered by Pennington Properties | Aaron Pennington</div>
+            <div class="agent-name">Patrick C. Washington</div>
+            <a href="tel:5022308636" class="contact-link">📱 Direct: (502) 230-8636</a>
+            <a href="mailto:cwhomeky@gmail.com" class="contact-link">✉️ cwhomeky@gmail.com</a>
+            <div class="broker-line" style="margin-top: 4px;">Office: (270) 872-5469 | Elizabethtown, KY</div>
+          </div>
+        </div>
 
-        // Bind Controls to Template Elements
-        attachTransform('badge-scale', 'badge-x', 'badge-y', 'badge-wrapper');
-        attachTransform('headline-scale', 'headline-x', 'headline-y', 'headline-wrapper', true);
-        attachTransform('address-scale', 'address-x', 'address-y', 'address-wrapper', true);
-        attachTransform('specs-scale', 'specs-x', 'specs-y', 'specs-wrapper');
-        attachTransform('desc-scale', 'desc-x', 'desc-y', 'desc-wrapper', true);
-        attachTransform('input-hs-scale', 'input-hs-pos-x', 'input-hs-pos-y', 'headshot-wrapper');
-        attachTransform('input-txt-size', 'input-txt-pos-x', 'input-txt-pos-y', 'contact-text-wrapper', true);
-        attachTransform('input-qr-scale', 'input-qr-pos-x', 'input-qr-pos-y', 'qr-wrapper');
-        attachTransform('input-logo-scale', 'input-logo-pos-x', 'input-logo-pos-y', 'logo-wrapper');
+        <div class="qr-box">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=mailto:cwhomeky@gmail.com" alt="Scan QR Code">
+        </div>
 
-        // Photo Container Height Control
-        document.getElementById('photo-height').addEventListener('input', (e) => {
-            document.getElementById('image-container').style.height = `${e.target.value}px`;
-        });
+      </div>
 
-        // Font Upload Engines
-        document.getElementById('font-upload').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const newFont = new FontFace('AdeptlyCustom', `url(${e.target.result})`);
-                    newFont.load().then(function(loadedFont) {
-                        document.fonts.add(loadedFont);
-                        document.getElementById('headline-wrapper').style.fontFamily = "'AdeptlyCustom', 'Great Vibes', cursive";
-                    });
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+      <div class="brokerage-logo">
+        <h3 style="color: red; font-family: sans-serif; text-transform: uppercase;">Pennington Properties</h3>
+      </div>
+    </footer>
 
-        document.getElementById('body-font-upload').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const newFont = new FontFace('CenturyCustom', `url(${e.target.result})`);
-                    newFont.load().then(function(loadedFont) {
-                        document.fonts.add(loadedFont);
-                        document.getElementById('ad-template').style.fontFamily = "'CenturyCustom', 'Century Schoolbook', 'Georgia', serif";
-                    });
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+  </main>
 
-        // Image Uploads (Headshot, QR, Logo)
-        document.getElementById('headshot-upload').addEventListener('change', function(e) {
-            if (e.target.files[0]) {
-                const r = new FileReader(); r.onload = (ev) => { document.getElementById('display-headshot').src = ev.target.result; }; r.readAsDataURL(e.target.files[0]);
-            }
-        });
-        document.getElementById('qr-upload').addEventListener('change', function(e) {
-            if (e.target.files[0]) {
-                const r = new FileReader(); r.onload = (ev) => { document.getElementById('display-qr').src = ev.target.result; }; r.readAsDataURL(e.target.files[0]);
-            }
-        });
-        document.getElementById('logo-upload').addEventListener('change', function(e) {
-            if (e.target.files[0]) {
-                const r = new FileReader(); r.onload = (ev) => { document.getElementById('display-logo').src = ev.target.result; }; r.readAsDataURL(e.target.files[0]);
-            }
-        });
-
-        // Multi-Image Gallery Manager
-        let imagesData = [];
-        let activeIndex = -1;
-        const imageContainer = document.getElementById('image-container');
-        const imageList = document.getElementById('image-list');
-
-        document.getElementById('image-upload').addEventListener('change', function(event) {
-            const files = Array.from(event.target.files);
-            files.forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    imagesData.push({ id: Date.now() + Math.random(), src: e.target.result, scale: 100, x: 0, y: 0 });
-                    activeIndex = imagesData.length - 1;
-                    renderCanvasImages();
-                    renderThumbnails();
-                };
-                reader.readAsDataURL(file);
-            });
-        });
-
-        function renderCanvasImages() {
-            imageContainer.innerHTML = '';
-            if (imagesData.length === 0) {
-                imageContainer.innerHTML = '<span class="text-xs font-semibold text-slate-400">Upload Photos Above</span>';
-                return;
-            }
-            imagesData.forEach((data, index) => {
-                const wrapper = document.createElement('div');
-                wrapper.className = `relative h-full flex-1 overflow-hidden flex items-center justify-center cursor-move border rounded ${index === activeIndex ? 'ring-2 ring-blue-600' : ''}`;
-                const imgEl = document.createElement('img');
-                imgEl.src = data.src;
-                imgEl.className = 'max-w-full max-h-full object-contain pointer-events-none';
-                imgEl.style.transform = `translate(${data.x}px, ${data.y}px) scale(${data.scale / 100})`;
-                wrapper.appendChild(imgEl);
-                imageContainer.appendChild(wrapper);
-            });
-        }
-
-        function renderThumbnails() {
-            imageList.innerHTML = '';
-            imagesData.forEach((data, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = data.src;
-                thumb.className = `w-10 h-10 object-cover rounded border-2 cursor-pointer ${index === activeIndex ? 'border-blue-900 scale-105' : 'border-slate-300 opacity-60'}`;
-                thumb.onclick = () => { activeIndex = index; renderCanvasImages(); renderThumbnails(); };
-                imageList.appendChild(thumb);
-            });
-        }
-
-        // Format & Theme Switching
-        function setFormat(format) {
-            const template = document.getElementById('ad-template');
-            template.classList.remove('format-feed', 'format-story', 'format-flyer');
-            template.classList.add(`format-${format}`);
-        }
-
-        function setTheme(theme) {
-            const template = document.getElementById('ad-template');
-            template.classList.remove('theme-light', 'theme-dark');
-            template.classList.add(`theme-${theme}`);
-        }
-
-        // High-Res PNG Download
-        function downloadAd() {
-            const element = document.getElementById('ad-template');
-            html2canvas(element, { scale: 3 }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'real-estate-ad.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            });
-        }
-    </script>
 </body>
 </html>
